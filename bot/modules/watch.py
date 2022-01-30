@@ -33,10 +33,10 @@ def _watch(bot: Bot, update, isTar=False, isZip=False, isLeech=False):
           raise IndexError
       else:
         qual = message_args[2]
-      if qual != "เสียง":
-        qual = f'ภาพชัดสุด[height<={qual}]+เสียงดีสุด/best[height<={qual}]'
+      if qual != "audio":
+        qual = f'bestvideo[height<={qual}]+bestaudio/best[height<={qual}]'
     except IndexError:
-      qual = "ภาพชัดสุด+เสียงดีสุด/best"
+      qual = "bestvideo+bestaudio/best"
     
     try:
       name = name_args[1]
