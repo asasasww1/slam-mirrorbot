@@ -31,15 +31,15 @@ def stats(update, context):
     cpuUsage = psutil.cpu_percent(interval=0.5)
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage('/').percent
-    stats = f'<b>Bot Uptime:</b> <code>{currentTime}</code>\n' \
-            f'<b>Total Disk Space:</b> <code>{total}</code>\n' \
-            f'<b>Used:</b> <code>{used}</code> ' \
-            f'<b>Free:</b> <code>{free}</code>\n\n' \
-            f'<b>Upload:</b> <code>{sent}</code>\n' \
-            f'<b>Download:</b> <code>{recv}</code>\n\n' \
-            f'<b>CPU:</b> <code>{cpuUsage}%</code> ' \
-            f'<b>RAM:</b> <code>{memory}%</code> ' \
-            f'<b>DISK:</b> <code>{disk}%</code>'
+    stats = f'<b>บอททำงานไปแล้ว:</b> <code>{currentTime}</code>\n' \
+            f'<b>พื้นที่เหลือไดรฟ์อยู่</b> <code>{total}</code>\n' \
+            f'<b>ใช้ไป:</b> <code>{used}</code> ' \
+            f'<b>เหลือ:</b> <code>{free}</code>\n\n' \
+            f'<b>อัพโหลด:</b> <code>{sent}</code>\n' \
+            f'<b>ดาวน์โหลด:</b> <code>{recv}</code>\n\n' \
+            f'<b>ซีพียู:</b> <code>{cpuUsage}%</code> ' \
+            f'<b>แรม:</b> <code>{memory}%</code> ' \
+            f'<b>ดิสก์:</b> <code>{disk}%</code>'
     sendMessage(stats, context.bot, update)
 
 
@@ -64,7 +64,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
 
 
 def restart(update, context):
-    restart_message = sendMessage("Restarting, Please wait!", context.bot, update)
+    restart_message = sendMessage("กำลังรีสตาร์ท, รอสักครู่!", context.bot, update)
     # Save restart message object in order to reply to it after restarting
     with open(".restartmsg", "w") as f:
         f.truncate(0)
@@ -229,11 +229,11 @@ def main():
     if os.path.isfile(".restartmsg"):
         with open(".restartmsg") as f:
             chat_id, msg_id = map(int, f)
-        bot.edit_message_text("Restarted successfully!", chat_id, msg_id)
+        bot.edit_message_text("รีสตาร์ท สำเร็จแล้ว!", chat_id, msg_id)
         os.remove(".restartmsg")
     elif OWNER_ID:
         try:
-            text = "<b>Bot Restarted!</b>"
+            text = "<b>บอท รีสตาร์ทแล้ว!</b>"
             bot.sendMessage(chat_id=OWNER_ID, text=text, parse_mode=ParseMode.HTML)
             if AUTHORIZED_CHATS:
                 for i in AUTHORIZED_CHATS:
