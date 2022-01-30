@@ -214,7 +214,7 @@ class MirrorListener(listeners.MirrorListeners):
             count = len(files)
             if self.message.chat.type == 'private':
                 msg = f'<b>ชื่อ:</b> <code>{link}</code>\n'
-                msg += f'<b>ไฟล์ทั้งหมด:</b> {count}'
+                msg += f'<b>ไฟล์ ทั้งหมด:</b> {count}'
                 sendMessage(msg, self.bot, self.update)
             else:
                 chat_id = str(self.message.chat.id)[4:]
