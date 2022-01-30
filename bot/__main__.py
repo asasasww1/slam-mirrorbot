@@ -32,7 +32,7 @@ def stats(update, context):
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage('/').percent
     stats = f'<b>บอททำงานไปแล้ว:</b> <code>{currentTime}</code>\n' \
-            f'<b>พื้นที่เหลือไดรฟ์อยู่</b> <code>{total}</code>\n' \
+            f'<b>พื้นที่ไดรฟ์</b> <code>{total}</code>\n' \
             f'<b>ใช้ไป:</b> <code>{used}</code> ' \
             f'<b>เหลือ:</b> <code>{free}</code>\n\n' \
             f'<b>อัพโหลด:</b> <code>{sent}</code>\n' \
