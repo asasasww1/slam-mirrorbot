@@ -16,7 +16,7 @@ def cancel_mirror(update, context):
         gid = args[1]
         dl = getDownloadByGid(gid)
         if not dl:
-            sendMessage(f"GID: <code>{gid}</code> Not Found.", context.bot, update)
+            sendMessage(f"GID: <code>{gid}</code> ไม่พบ.", context.bot, update)
             return
         mirror_message = dl.message
     elif update.message.reply_to_message:
@@ -28,7 +28,7 @@ def cancel_mirror(update, context):
             except:
                 pass
     if len(args) == 1:
-        msg = f"Please reply to the <code>/{BotCommands.MirrorCommand}</code> message which was used to start the download or send <code>/{BotCommands.CancelMirror} GID</code> to cancel it!"
+        msg = f"โปรดตอบกลับข้อความ <code>/{BotCommands.MirrorCommand}</code> ที่ใช้ในการเริ่มการดาวน์โหลดหรือส่ง <code>/{BotCommands.CancelMirror} GID</code> เพื่อยกเลิก!"
         if mirror_message and mirror_message.message_id not in keys:
             if BotCommands.MirrorCommand in mirror_message.text or \
                BotCommands.TarMirrorCommand in mirror_message.text or \
