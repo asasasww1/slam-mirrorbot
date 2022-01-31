@@ -18,13 +18,11 @@ from .mirror import MirrorListener
 listener_dict = {}
 
 
-def _watch(bot, update, isTar=False, isZip=False, isLeech=False, pswd=None):
+def _watch(bot: Bot, update, isTar=False, isZip=False, isLeech=False):
     mssg = update.message.text
-    message_args = mssg.split(' ', maxsplit=2)
-    name_args = mssg.split('|', maxsplit=1)
-    user_id = update.message.from_user.id
-    msg_id = update.message.message_id
-
+    message_args = mssg.split(' ')
+    name_args = mssg.split('|')
+    
     try:
         link = message_args[1].strip()
         if link.startswith("|") or link.startswith("pswd: "):
