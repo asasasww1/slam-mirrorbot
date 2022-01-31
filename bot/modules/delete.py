@@ -15,7 +15,7 @@ def deletefile(update, context):
 		link = msg_args[1]
 		LOGGER.info(link)
 	except IndexError:
-		msg = 'Send a link along with command'
+		msg = 'ลิ้งที่ต้องทำการลบ'
 
 	if msg == '' : 
 		drive = gdriveTools.GoogleDriveHelper()
