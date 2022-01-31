@@ -137,12 +137,12 @@ def get_readable_message():
             ]:
                 msg += f"\n<code>{get_progress_bar_string(download)} {download.progress()}</code>"
                 if download.status() == MirrorStatus.STATUS_CLONING:
-                    msg += f"\n<b>Cloned:</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
+                    msg += f"\n<b>โคลน:</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
                 elif download.status() == MirrorStatus.STATUS_UPLOADING:
                     msg += f"\n<b>อัพโหลด:</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
                 else:
                     msg += f"\n<b>ดาวน์โหลด:</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
-                msg += f"\n<b>ความเร็ว:</b> <code>{download.speed()}</code> <b>ETA:</b> <code>{download.eta()}</code>"
+                msg += f"\n<b>ความเร็ว:</b> <code>{download.speed()}</code> <b>เวลาที่เหลือ:</b> <code>{download.eta()}</code>"
                 try:
                     msg += f"\n<b>กำลังส่ง:</b> <code>{download.aria_download().num_seeders}</code>" \
                            f" | <b>เพียร์:</b> <code>{download.aria_download().connections}</code>"
@@ -153,7 +153,7 @@ def get_readable_message():
                            f" | <b>กำลังรับ:</b> <code>{download.torrent_info().num_leechs}</code>"
                 except:
                     pass
-                msg += f"\n<b>พิม ยกเลิก:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n<b>คำสั่งยกเลิก:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             msg += "\n\n"
             if STATUS_LIMIT is not None and index == STATUS_LIMIT:
                 break
