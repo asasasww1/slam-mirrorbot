@@ -137,7 +137,7 @@ def get_readable_message():
             ]:
                 msg += f"\n<code>{get_progress_bar_string(download)} {download.progress()}</code>"
                 if download.status() == MirrorStatus.STATUS_CLONING:
-                    msg += f"\n<b>โคลน:</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
+                    msg += f"\n<b>กำลังโคลน:</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
                 elif download.status() == MirrorStatus.STATUS_UPLOADING:
                     msg += f"\n<b>อัพโหลด:</b> <code>{get_readable_file_size(download.processed_bytes())}</code> of <code>{download.size()}</code>"
                 else:
